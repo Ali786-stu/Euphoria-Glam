@@ -49,9 +49,12 @@ function ReelVideo({ src }) {
 }
 
 export default function OurWorksReels() {
-  const [activeTab, setActiveTab] = useState('reels');
+  const [activeTab, setActiveTab] = useState('gallery');
+  const [showAllGallery, setShowAllGallery] = useState(false);
   // Duplicate reels to create a seamless infinite scroll loop
   const duplicatedReels = [...reels, ...reels];
+  
+  const displayedGallery = showAllGallery ? galleryImages : galleryImages.slice(0, 8);
 
   return (
     <section className="pt-16 pb-8 overflow-hidden">
@@ -78,16 +81,6 @@ export default function OurWorksReels() {
         {/* Category Tabs */}
         <div className="flex justify-center items-center gap-8 mb-8">
           <button 
-            onClick={() => setActiveTab('reels')}
-            className={`font-label-caps text-label-caps uppercase tracking-[0.15em] pb-2 border-b-2 transition-all duration-300 ${
-              activeTab === 'reels' 
-                ? 'border-champagne-gold text-charcoal' 
-                : 'border-transparent text-charcoal/50 hover:text-charcoal'
-            }`}
-          >
-            Reels
-          </button>
-          <button 
             onClick={() => setActiveTab('gallery')}
             className={`font-label-caps text-label-caps uppercase tracking-[0.15em] pb-2 border-b-2 transition-all duration-300 ${
               activeTab === 'gallery' 
@@ -96,6 +89,16 @@ export default function OurWorksReels() {
             }`}
           >
             Gallery
+          </button>
+          <button 
+            onClick={() => setActiveTab('reels')}
+            className={`font-label-caps text-label-caps uppercase tracking-[0.15em] pb-2 border-b-2 transition-all duration-300 ${
+              activeTab === 'reels' 
+                ? 'border-champagne-gold text-charcoal' 
+                : 'border-transparent text-charcoal/50 hover:text-charcoal'
+            }`}
+          >
+            Reels
           </button>
         </div>
       </div>
@@ -127,8 +130,8 @@ export default function OurWorksReels() {
               className="max-w-container-max mx-auto px-gutter py-10"
             >
               {/* Premium Masonry Grid */}
-              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 pb-16">
-                {galleryImages.map((src, idx) => (
+              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 pb-8">
+                {displayedGallery.map((src, idx) => (
                   <div key={idx} className="break-inside-avoid relative group overflow-hidden rounded-xl shadow-lg cursor-pointer">
                     <img 
                       src={src} 
@@ -140,6 +143,21 @@ export default function OurWorksReels() {
                   </div>
                 ))}
               </div>
+              
+              {!showAllGallery && galleryImages.length > 8 && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex justify-center pb-8 mt-4"
+                >
+                  <button 
+                    onClick={() => setShowAllGallery(true)}
+                    className="border border-charcoal/40 bg-transparent text-charcoal px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-charcoal hover:text-white transition-all duration-300"
+                  >
+                    See More
+                  </button>
+                </motion.div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

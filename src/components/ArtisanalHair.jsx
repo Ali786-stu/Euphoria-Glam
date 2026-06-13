@@ -32,7 +32,7 @@ export default function ArtisanalHair({ scrollProgress, isContainerInView }) {
   const mobY = useTransform(
     scrollProgress || { get: () => 1 },
     [0, 0.6, 1],
-    ["-110svh", "0svh", "0svh"],
+    ["-140svh", "0svh", "0svh"],
   );
   const mobX = useTransform(
     scrollProgress || { get: () => 1 },
