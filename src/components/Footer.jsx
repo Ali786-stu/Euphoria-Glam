@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal text-champagne-gold relative overflow-hidden">
       {/* Huge Background Marquee */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none z-0 flex items-end translate-y-8 md:translate-y-4">
+      <div className="absolute bottom-32 md:bottom-20 left-0 w-full overflow-hidden pointer-events-none select-none z-0 flex items-end">
         <div className="animate-marquee whitespace-nowrap opacity-10">
           <span className="font-display-lg text-[18vw] md:text-[14vw] xl:text-[220px] leading-none text-white uppercase pr-16">
             Euphoria Glam Makeup Studio •
@@ -49,17 +49,17 @@ export default function Footer() {
           <div>
             <h4 className="font-label-caps text-label-caps uppercase tracking-widest text-white mb-6">The Studio</h4>
             <ul className="space-y-4">
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Services</a></li>
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Portfolio</a></li>
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Bridal</a></li>
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Contact</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/services">Services</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/">Portfolio</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/services">Bridal</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/#contact">Contact</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-label-caps text-label-caps uppercase tracking-widest text-white mb-6">The Academy</h4>
             <ul className="space-y-4">
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Masterclasses</a></li>
-              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Private 1-on-1</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/academy">Masterclasses</a></li>
+              <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="/academy">Private 1-on-1</a></li>
               <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Privacy Policy</a></li>
               <li><a className="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Terms of Service</a></li>
             </ul>
