@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELITE STUDIO | The Art of Transformation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .parallax-bg {
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+        .letter-spacing-widest {
+            letter-spacing: 0.3em;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#745c00",
+                    "primary": "#000000",
+                    "on-background": "#1c1b1b",
+                    "tertiary-container": "#211a1b",
+                    "on-surface": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "outline": "#747878",
+                    "cream-bg": "#FCF9F9",
+                    "inverse-surface": "#313030",
+                    "primary-container": "#1c1b1b",
+                    "charcoal": "#1A1A1A",
+                    "on-tertiary-fixed-variant": "#4e4446",
+                    "on-primary-fixed-variant": "#474746",
+                    "champagne-gold": "#D4AF37",
+                    "surface-container-high": "#ebe7e6",
+                    "primary-fixed": "#e5e2e1",
+                    "secondary-fixed": "#ffe088",
+                    "inverse-primary": "#c8c6c5",
+                    "on-primary-container": "#858383",
+                    "tertiary": "#000000",
+                    "inverse-on-surface": "#f4f0ef",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#ddd9d8",
+                    "error-container": "#ffdad6",
+                    "background": "#fdf8f8",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#eedfe1",
+                    "soft-blush": "#F5E6E8",
+                    "on-tertiary-container": "#8d8183",
+                    "surface-container": "#f1edec",
+                    "tertiary-fixed-dim": "#d1c3c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c4c7c7",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#735c00",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "surface-bright": "#fdf8f8",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-tint": "#5f5e5e",
+                    "on-surface-variant": "#444748",
+                    "gold-leaf": "#B8932D",
+                    "surface-variant": "#e5e2e1",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-low": "#f7f3f2",
+                    "secondary-container": "#fed65b",
+                    "on-secondary-fixed": "#241a00",
+                    "on-tertiary-fixed": "#211a1b",
+                    "surface": "#fdf8f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-padding": "120px",
+                    "gutter": "24px",
+                    "stack-lg": "48px",
+                    "section-padding-mobile": "64px",
+                    "stack-md": "24px",
+                    "stack-sm": "12px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "label-caps": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                    "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                    "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600" }]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-cream-bg text-charcoal font-body-md">
+<!-- TopNavBar -->
+<header class="fixed w-full top-0 z-50 bg-cream-bg/90 backdrop-blur-md border-b border-champagne-gold/20">
+<nav class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md tracking-tighter text-charcoal">ELITE STUDIO</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-primary border-b-2 border-champagne-gold pb-1 hover:text-gold-leaf transition-colors duration-300" href="#">Portfolio</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-on-surface-variant hover:text-gold-leaf transition-colors duration-300" href="#">Services</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-on-surface-variant hover:text-gold-leaf transition-colors duration-300" href="#">Academy</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-on-surface-variant hover:text-gold-leaf transition-colors duration-300" href="#">About</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-on-surface-variant hover:text-gold-leaf transition-colors duration-300" href="#">Journal</a>
+<a class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-on-surface-variant hover:text-gold-leaf transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-charcoal text-white px-8 py-3 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-champagne-gold transition-all duration-300 rounded-none">
+                Book Now
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center parallax-bg scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLsinJGzMrETrxeme2-RIqEqOryJ-ILfvRIBHzLM0zLLsB-10fJgwkoV_LE6dCxi7XqOPrY-xnwsnidYjRl3ekiYTX3LPvBpB_FkBxtK63n17qoIwDFdFim3BU3kbZFrZd4k64NZmi86DLig9oGHzCVRfZhU1AF4IDuQN_wgsnlV_Qfp-Penxi_O74GhpPKDasBls9EpDxgghKn_lTtMr2Ctzv2HjXIq7qUpHSlNF7DvjTAWnNxqKXaWp4Gu');">
+<div class="absolute inset-0 bg-charcoal/20"></div>
+</div>
+<div class="relative z-10 text-center text-white px-gutter max-w-4xl">
+<p class="font-label-caps text-label-caps uppercase tracking-[0.3em] mb-6 reveal">Bespoke Beauty Experiences</p>
+<h1 class="font-display-lg text-display-lg mb-8 reveal">The Art of <br/><span class="italic font-normal">Transformation</span></h1>
+<div class="reveal delay-200">
+<button class="border border-white/40 bg-white/10 backdrop-blur-sm text-white px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-white hover:text-charcoal transition-all duration-500">
+                        Explore Our Craft
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<span class="font-label-caps text-[10px] uppercase tracking-[0.2em] mb-4 text-white/70">Scroll</span>
+<div class="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
+</div>
+</section>
+<!-- Signature Artistry Section -->
+<section class="py-section-padding bg-cream-bg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+<div class="w-full md:w-1/2 reveal">
+<div class="relative aspect-square">
+<img alt="Luxury Makeup Brushes" class="w-full h-full object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida/AP1WRLvwlL09Axvct3A5byf-BClxpYe2sPcZu0z5cwMaR0NY85IUCQZIJhoAmYU1N0f7zvvssRO1RqNTndkYWpwAyXHLTDHH-tmj_2Z575bfk9W_pQ62XqhspvYmf9aUFhOK7-PiYA6yKok-Vmg0jEJZNzKEBxyQgjSdIFcdV3BKJqDUq_FJy3TGouhp62Xs3Xb1IlQvAtP9OnB3KpZpCXab8cLWY4cuN8Qpz9_5MNiMD18WP1dwjsX8HpCx_WVb"/>
+<div class="absolute -bottom-6 -right-6 w-1/2 h-1/2 border border-champagne-gold/30 -z-10"></div>
+</div>
+</div>
+<div class="w-full md:w-1/2 reveal delay-100">
+<h2 class="font-label-caps text-label-caps text-champagne-gold uppercase tracking-[0.2em] mb-4 text-left">Signature Service</h2>
+<h3 class="font-display-lg text-headline-md mb-6">Editorial Makeup <br/>Artistry</h3>
+<p class="font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                            At Elite Studio, we perceive makeup not as a mask, but as a precise instrument of self-expression. Our signature editorial approach blends high-fashion techniques with wearable sophistication, creating looks that resonate with timeless elegance and modern flair.
+                        </p>
+<a class="inline-flex items-center text-charcoal font-label-caps text-label-caps uppercase tracking-[0.15em] border-b border-champagne-gold pb-1 hover:text-gold-leaf transition-all duration-300" href="#">
+                            The Makeup Gallery <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Artisanal Hair Section -->
+<section class="py-section-padding bg-soft-blush/30">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
+<div class="w-full md:w-1/2 reveal">
+<div class="relative aspect-square">
+<img alt="Luxury Hair Styling Tools" class="w-full h-full object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida/AP1WRLtG0CN5INEN5EBVG4-sI5Q445aXyd7qH7506qdRUVztBz3wzUCRy-1M2bncYrUdBRbHMBxk-ZZZhB1qJ5Vuo4scwVVHgNqDtc--A4NJMTNJylgu8wedN-hnjXG0WPIqOFnSu7Tn-kpY_8TTpdKQfgsrz8I86CkN_HLjegNBOxVnBsX0FIuQGgEhaAypeLnw1ZvMzHtYbk0vg3lu72IlZEhkwvQ_HMPCpr2a-OK3y-GELFEA96AI7dMjOnK3"/>
+<div class="absolute -top-6 -left-6 w-1/2 h-1/2 border border-champagne-gold/30 -z-10"></div>
+</div>
+</div>
+<div class="w-full md:w-1/2 reveal delay-100">
+<h2 class="font-label-caps text-label-caps text-champagne-gold uppercase tracking-[0.2em] mb-4 text-left">The Studio</h2>
+<h3 class="font-display-lg text-headline-md mb-6">Artisanal Hair <br/>Sculpting</h3>
+<p class="font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                            From red-carpet waves to avant-garde structures, our hair division focuses on the architectural integrity of every strand. We utilize elite-tier tools and professional-grade botanical formulas to ensure your transformation is as healthy as it is visually stunning.
+                        </p>
+<a class="inline-flex items-center text-charcoal font-label-caps text-label-caps uppercase tracking-[0.15em] border-b border-champagne-gold pb-1 hover:text-gold-leaf transition-all duration-300" href="#">
+                            Hair Collection <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- The Academy Section -->
+<section class="relative bg-charcoal py-section-padding overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-30 grayscale mix-blend-overlay">
+<img alt="Woman in studio" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida/AP1WRLv4mpeM7a9ZX3oNDFl8XsoUUnEwAyNcsdELyK8urp01XsR79S-2abDFtaLdQx5bQohycIeBwu4nZ8ZygwnZgmatCNWrb3mxetLw_ae0_5JFdvnfUQ8NgX-jJpCFQEmS6HHl-vBGztoDxhwWF-KfP2dtS1I2HvVULWKLy_wXReLPPcD3GHzwDI-g8gxE1VjEG5L2qkfOniHPPi5k3tp90fcIyFaRcxcpkMNGegCfry19jdXdXDm8kWXXi6Wn"/>
+</div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="max-w-2xl reveal">
+<h2 class="font-label-caps text-label-caps text-champagne-gold uppercase tracking-[0.25em] mb-6">Educational Excellence</h2>
+<h3 class="font-display-lg text-display-lg text-white mb-8">The Elite Academy</h3>
+<p class="font-body-lg text-surface-variant mb-10 leading-relaxed">
+                        Elevate your professional trajectory with our masterclass series. Led by industry veterans, our academy offers immersive training for aspiring artists who demand rigor, technical mastery, and creative vision.
+                    </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-champagne-gold text-charcoal px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-white transition-all duration-300">
+                            View Masterclasses
+                        </button>
+<button class="border border-champagne-gold/50 text-champagne-gold px-10 py-4 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-champagne-gold/10 transition-all duration-300">
+                            Download Prospectus
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- The Portfolio Section -->
+<section class="py-section-padding bg-cream-bg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-20 reveal">
+<h2 class="font-label-caps text-label-caps text-champagne-gold uppercase tracking-[0.3em] mb-4">Our Gallery</h2>
+<h3 class="font-display-lg text-display-lg">The Lookbook</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
+<!-- Column 1 -->
+<div class="space-y-12 reveal" style="transition-delay: 100ms;">
+<div class="group relative overflow-hidden">
+<img alt="Elite Studio Lookbook 1" class="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLvGROIIeV79yg715vsJSvtmMesFgLDQx_nEy1nJY0QjvpPJrP7Ocy0hjoblHxYq_GdYwXwq-R4emCFiKR1ZpeOIw6fMtQwOJK6e9fJY3n5KM5uMnZFQaneoZ5z6-nxDhoFhkKlkkGvNj-83AQEho7oUeEQgnvDaBBicoKJowdKHkzjMzo6b6GHDadGhQ0rAhTPssy4tmX2At0792J0tvNuoJxZ6TbN8dFdu2WxhOWqYNnSnStW5Y0v5HSmQ"/>
+<div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
+<p class="text-white italic font-display-lg text-headline-sm text-center">Midnight Radiance</p>
+</div>
+</div>
+<div class="pl-8 border-l border-champagne-gold/30">
+<p class="font-body-md text-on-surface-variant italic leading-relaxed">
+                                "Beauty is about enhancing what you have. Let yourself shine through."
+                            </p>
+</div>
+</div>
+<!-- Column 2 (Center, Higher) -->
+<div class="space-y-12 reveal pb-24" style="transition-delay: 300ms;">
+<div class="group relative overflow-hidden shadow-2xl">
+<img alt="Elite Studio Lookbook 2" class="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLsJthK_9RJ-x0WMz19rqHxe8oxCMVgDckCejgjc2H8Kczakmq2N0z9pqlHAumf225mjTxC6GYUQ-RQZSAMAJGnfwp6soRGpnsB7tie6FOUUqcFI4T0LCzNRgXxttPlThWJweYGedNF6xMX3oZTw1_Vj1f3RgBW0WEbR-TtT5Xyf3E9P2rVnj-SibnsSlpwyqk_UuaMlwZt9No72BFj0aX4eQ41ovV4flGfd1Xe4kSNKQmfj34-x_LPuC9DS"/>
+<div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
+<p class="text-white italic font-display-lg text-headline-sm text-center">Bridal Opulence</p>
+</div>
+</div>
+<div class="text-center">
+<span class="font-label-caps text-label-caps text-champagne-gold uppercase tracking-widest">Featured Series</span>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="space-y-12 reveal" style="transition-delay: 500ms;">
+<div class="group relative overflow-hidden">
+<img alt="Elite Studio Lookbook 3" class="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLu_CLyF0fbrZVTY_z2zerhVxxINoZrZngHHQ4_pf3U6BsfSKmzzLYZ2Wr2W6jVJkzEKyFlkzY5C8mL1wYq_n06EgL_6xGc09rYyT5I_o1ZsJal-MLhpqFLjvJhx14iS8Tvd0m_t1ysU_8xsigFTAUfp3Fa5EIDuenffEYGx0n_BUyUFdFpl-VrDdM7aaOuwvXJ400mSIM8HIOdvJoR5AvbuYOaMxLwrDyNYIYvw-fscN1TojRb14gJzJLpZ"/>
+<div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
+<p class="text-white italic font-display-lg text-headline-sm text-center">Avant-Garde Luxe</p>
+</div>
+</div>
+<div class="pr-8 text-right border-r border-champagne-gold/30">
+<p class="font-body-md text-on-surface-variant italic leading-relaxed">
+                                Curating moments of unparalleled sophistication.
+                            </p>
+</div>
+</div>
+</div>
+<div class="mt-24 text-center reveal">
+<button class="bg-charcoal text-white px-12 py-5 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-champagne-gold transition-all duration-300">
+                        View Full Portfolio
+                    </button>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact Teaser -->
+<section class="py-section-padding bg-soft-blush/20 border-y border-champagne-gold/10">
+<div class="max-w-2xl mx-auto px-gutter text-center reveal">
+<h3 class="font-display-lg text-headline-md mb-6">Stay Informed</h3>
+<p class="font-body-md text-on-surface-variant mb-8">Join our inner circle for exclusive updates on masterclasses, seasonal trends, and studio residency openings.</p>
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-transparent border-b border-charcoal/30 focus:border-champagne-gold transition-colors py-4 font-label-caps text-[10px] outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-charcoal text-white px-8 py-4 font-label-caps text-label-caps uppercase tracking-[0.15em] hover:bg-champagne-gold transition-all duration-300" type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-charcoal text-champagne-gold">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding border-t border-champagne-gold/10 flex flex-col md:flex-row justify-between">
+<div class="mb-12 md:mb-0">
+<div class="font-display-lg text-headline-sm text-champagne-gold mb-6">ELITE STUDIO</div>
+<p class="font-body-md text-surface-variant/70 max-w-xs leading-loose">
+                    Defining the standard for high-end editorial makeup and advanced artistry education.
+                </p>
+<div class="flex space-x-6 mt-8">
+<a class="hover:text-white transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="hover:text-white transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">camera</span>
+</a>
+<a class="hover:text-white transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-8 md:gap-x-24">
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest text-white mb-6">The Studio</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Services</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Portfolio</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Bridal</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest text-white mb-6">The Academy</h4>
+<ul class="space-y-4">
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Masterclasses</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Private 1-on-1</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-variant/70 font-body-md hover:text-white transition-colors duration-200 block py-1" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter pb-12 border-t border-white/5 pt-8 text-center md:text-left">
+<p class="font-body-md text-[10px] tracking-[0.2em] text-surface-variant/40 uppercase">© 2024 ELITE STUDIO &amp; ACADEMY. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+        // Reveal on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        // Parallax effect
+        function parallax() {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            let scrollPosition = window.pageYOffset;
+            if (parallaxBg) {
+                parallaxBg.style.transform = `translateY(${scrollPosition * 0.4}px) scale(1.1)`;
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("scroll", parallax);
+
+        // Initial check
+        reveal();
+    </script>
+</body></html>
